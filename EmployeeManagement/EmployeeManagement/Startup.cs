@@ -28,7 +28,8 @@ namespace EmployeeManagement
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync(System.Diagnostics.Process.GetCurrentProcess().ProcessName);
-                // output: iisexpress
+                // output: iisexpress if run using visual studio
+                // output: dotnet if run using dotnet run cli command
             });
         }
     }

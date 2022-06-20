@@ -13,3 +13,18 @@ Taken from YouTube [playlist](https://www.youtube.com/watch?v=4IgC2Q5-yDE&list=P
 - CreateDefaultBuilder() method calls UseIIS() method and host the app inside of the IIS worker process w3wp.exe or iisexpress.exe
   `<AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>`
 - InProcess hosting gives higher request throughput than OutOfProcess hosting
+
+| IIS Express                    | IIS                      |
+| :----------------------------- | :----------------------- |
+| Lightweight                    | For Production           |
+| process name is iisexpress.exe | process name is w3wp.exe |
+
+| OutOfProcess                         | InProcess        |
+| :----------------------------------- | :--------------- |
+| 2 web servers: Internal and external | Only internal??? |
+| internal: Kestrel                    | only IIS         |
+| external: IIS, Nginx, Apache         |
+
+- Kestrel
+  - cross platform
+  - process: dotnet.exe
