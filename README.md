@@ -19,12 +19,22 @@ Taken from YouTube [playlist](https://www.youtube.com/watch?v=4IgC2Q5-yDE&list=P
 | Lightweight                    | For Production           |
 | process name is iisexpress.exe | process name is w3wp.exe |
 
-| OutOfProcess                         | InProcess        |
-| :----------------------------------- | :--------------- |
-| 2 web servers: Internal and external | Only internal??? |
-| internal: Kestrel                    | only IIS         |
-| external: IIS, Nginx, Apache         |
+| OutOfProcess                         | InProcess                                                             |
+| :----------------------------------- | :-------------------------------------------------------------------- |
+| 2 web servers: Internal and external | Only one web server, Only internal???                                 |
+| Process name is dotnet.exe           | w3wp.exe, iisexpress.exe                                              |
+| internal: Kestrel                    |                                                                       |
+| external: IIS, Nginx, Apache         |                                                                       |
+| better performance                   | penalty of proxying requests between internal and external web server |
 
 - Kestrel
   - cross platform
   - process: dotnet.exe
+
+| commandName | AspNetCoreHostingModel                                              | Internal Web Server | External Web Server |
+| ----------- | ------------------------------------------------------------------- | ------------------- | ------------------- |
+| Project     | Hosting Setting Ignored <td colspan=2>Only one web server - Kestrel |
+| IISExpress  | InProcess <td colspan=2>Only one web server - IISExpress            |
+| IISExpress  | OutOfProcess                                                        | Kestrel             | IISExpress          |
+| IIS         | InProcess <td colspan=2>Only one web server - IIS                   |
+| IIS         | OutOfProcess                                                        | Kestrel             | IIS                 |
