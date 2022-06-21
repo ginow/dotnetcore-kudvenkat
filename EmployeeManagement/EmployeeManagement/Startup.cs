@@ -12,7 +12,12 @@ namespace EmployeeManagement
 {
     public class Startup
     {
-        
+        private IConfiguration _config;
+
+        public Startup(IConfiguration config)
+        {
+            _config = config;
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -29,9 +34,8 @@ namespace EmployeeManagement
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync(System.Diagnostics.Process.GetCurrentProcess().ProcessName);
-                // output: iisexpress if run using visual studio
-                // output: dotnet if run using dotnet run cli command
+                await context.Response.WriteAsync(_config["MyKey"]); // output: value of mykey
+              
             });
         }
     }
