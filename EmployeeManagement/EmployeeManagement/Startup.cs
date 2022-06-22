@@ -28,14 +28,16 @@ namespace EmployeeManagement
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            FileServerOptions fileServerOptions = new FileServerOptions();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");    
-            app.UseFileServer(fileServerOptions);
-            app.UseStaticFiles();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+             
+            app.UseFileServer(); // Combines the functionality of useDefaultFile and useStaticFiles
+            
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello world  ");
+                throw new Exception("Some error processing the request");
             
             });
         }
