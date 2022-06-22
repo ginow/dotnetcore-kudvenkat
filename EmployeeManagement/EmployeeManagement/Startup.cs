@@ -31,11 +31,18 @@ namespace EmployeeManagement
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.Use(async (context,next) =>
+            {
+                await context.Response.WriteAsync("Hello from zeroeth middleware");      // Output will be "Hello from zeroeth middlewareHello from first middleware"
+                await next();
+            });
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync(_config["MyKey"]); // output: value of mykey
-              
+                await context.Response.WriteAsync("Hello from first middleware");      // Terminal middleware, only this response is shown         
+            });
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Hello from second middleware");
             });
         }
     }
