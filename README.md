@@ -1,4 +1,4 @@
-watched till "Asp net core project file"
+watched till "Asp net core appsettings json file"
 
 # dotnetcore-kudvenkat
 
@@ -38,3 +38,10 @@ Taken from YouTube [playlist](https://www.youtube.com/watch?v=4IgC2Q5-yDE&list=P
 | IISExpress  | OutOfProcess                                                        | Kestrel             | IISExpress          |
 | IIS         | InProcess <td colspan=2>Only one web server - IIS                   |
 | IIS         | OutOfProcess                                                        | Kestrel             | IIS                 |
+
+### Configuration sources
+
+- Files (appsettings.json, appsettings.{Environment}.json)
+- User secrets
+- Environment variables
+- Command-line arguments
