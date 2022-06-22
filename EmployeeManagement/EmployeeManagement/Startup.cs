@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace EmployeeManagement
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -33,16 +34,21 @@ namespace EmployeeManagement
             }
             app.Use(async (context,next) =>
             {
-                await context.Response.WriteAsync("Hello from zeroeth middleware");      // Output will be "Hello from zeroeth middlewareHello from first middleware"
+                logger.LogInformation("MW1: Incoming request");
                 await next();
+                logger.LogInformation("MW1: Outgoing request");
             });
+            app.Use(async (context, next) =>
+            {
+                logger.LogInformation("MW2: Incoming request");
+                await next();
+                logger.LogInformation("MW2: Outgoing request");
+            });
+          
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello from first middleware");      // Terminal middleware, only this response is shown         
-            });
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello from second middleware");
+                await context.Response.WriteAsync("MW3: Request handled and response produced");
+                logger.LogInformation("MW3: Request handled and response produced");
             });
         }
     }
