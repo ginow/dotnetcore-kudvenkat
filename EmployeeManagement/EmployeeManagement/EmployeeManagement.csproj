@@ -6,8 +6,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Test.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Test.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Test.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\Test.cshtml" />
   </ItemGroup>
 
 </Project>
