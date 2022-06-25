@@ -59,3 +59,6 @@ loosely coupled, easy to unit test
 
 ### View Discovery
 - `View()` looks for file with same name as action method
+
+### Layout View
+- Leading `_` in `_Layout.cshtml` means file is not to be served directly
