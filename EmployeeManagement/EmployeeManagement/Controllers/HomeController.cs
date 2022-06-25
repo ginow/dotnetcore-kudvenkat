@@ -17,11 +17,10 @@ namespace EmployeeManagement.Controllers
         }
         public ViewResult Details()
         {
-            Employee model=_employeeRepositor.GetEmployee(1);
-            ViewBag.Employee = model;
+            Employee model=_employeeRepositor.GetEmployee(1);            
             
             ViewBag.PageTitle = "Employee Details";
-            return View();
+            return View(model);
         }
     }
 }
