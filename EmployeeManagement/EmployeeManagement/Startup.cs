@@ -28,21 +28,12 @@ namespace EmployeeManagement
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                DeveloperExceptionPageOptions developerExceptionPageOptions = new DeveloperExceptionPageOptions()
-                {
-                    SourceCodeLineCount = 30
-                };
-                app.UseDeveloperExceptionPage(developerExceptionPageOptions);
-            }
-             
-            app.UseFileServer(); // Combines the functionality of useDefaultFile and useStaticFiles
-            
+
+
             app.Run(async (context) =>
             {
-                throw new Exception("Some error processing the request");
-            
+                await context.Response.WriteAsync("Hosting environment: " + env.EnvironmentName);
+
             });
         }
     }
