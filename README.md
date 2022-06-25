@@ -56,3 +56,6 @@ loosely coupled, easy to unit test
 - `AddSignleton()` a single instance created per application, used throughout
 - `AddTransient()` a new instance created each time requested
 - `AddScoped()` new instance for each request but reused within same web request
+
+### View Discovery
+- `View()` looks for file with same name as action method

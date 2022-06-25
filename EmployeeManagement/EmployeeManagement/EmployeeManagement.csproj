@@ -22,8 +22,4 @@
     <_ContentIncludedByDefault Remove="Views\Test.razor" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="Views\Home\Test.cshtml" />
-  </ItemGroup>
-
 </Project>
