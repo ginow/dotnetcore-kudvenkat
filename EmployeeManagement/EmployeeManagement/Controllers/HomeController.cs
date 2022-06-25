@@ -9,7 +9,7 @@ namespace EmployeeManagement.Controllers
 
         public HomeController(IEmployeeRepository employeeRepository) // Constructor injection
         {
-            _employeeRepositor = employeeRepository;
+            _employeeRepositor = new MockEmployeeRepository(); // Without Dependency injection, this is tight coupling
         }
         public string Index()
         {
