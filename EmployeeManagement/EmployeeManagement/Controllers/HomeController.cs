@@ -15,10 +15,10 @@ namespace EmployeeManagement.Controllers
         {
             return _employeeRepositor.GetEmployee(1).Name;
         }
-        public ObjectResult Details()
+        public ViewResult Details()
         {
             Employee model=_employeeRepositor.GetEmployee(1);
-            return new ObjectResult(model);
+            return View(model);
         }
     }
 }
