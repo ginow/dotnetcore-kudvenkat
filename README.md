@@ -45,3 +45,8 @@ Taken from YouTube [playlist](https://www.youtube.com/watch?v=4IgC2Q5-yDE&list=P
 - User secrets
 - Environment variables
 - Command-line arguments
+
+### AddMvc vs AddMvcCore
+- `AddMvcCore()` method only adds  core MVC services
+- `AddMvc()` method adds all (eg. the addJSONformatter thing)
+-  `AddMvc()` method calls `AddMvcCore()` internally
