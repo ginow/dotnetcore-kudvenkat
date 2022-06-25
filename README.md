@@ -50,3 +50,9 @@ Taken from YouTube [playlist](https://www.youtube.com/watch?v=4IgC2Q5-yDE&list=P
 - `AddMvcCore()` method only adds  core MVC services
 - `AddMvc()` method adds all (eg. the addJSONformatter thing)
 -  `AddMvc()` method calls `AddMvcCore()` internally
+
+### Dependency injection
+loosely coupled, easy to unit test
+- `AddSignleton()` a single instance created per application, used throughout
+- `AddTransient()` a new instance created each time requested
+- `AddScoped()` new instance for each request but reused within same web request

@@ -5,16 +5,20 @@ namespace EmployeeManagement.Controllers
 {
     public class HomeController : Controller
     {
-        private IEmployeeRepository _employeeRepositor;
+        private readonly IEmployeeRepository _employeeRepositor;
 
         public HomeController(IEmployeeRepository employeeRepository) // Constructor injection
         {
-            _employeeRepositor = new MockEmployeeRepository(); // Without Dependency injection, this is tight coupling
+            _employeeRepositor = employeeRepository;
         }
         public string Index()
         {
             return _employeeRepositor.GetEmployee(1).Name;
         }
-
+        public JsonResult Details()
+        {
+            Employee model=_employeeRepositor.GetEmployee(1);
+            return Json(model);
+        }
     }
 }
