@@ -1,1 +1,1 @@
-﻿alert("customscript loaded")
+﻿
