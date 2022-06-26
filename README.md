@@ -1,4 +1,4 @@
-watched till "Asp net core appsettings json file"
+watched till "28 Layout View in asp net core mvc"
 
 # dotnetcore-kudvenkat
 
